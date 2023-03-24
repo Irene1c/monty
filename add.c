@@ -2,6 +2,9 @@
 
 /**
  * _add - adds the top two elements of the stack
+ * The result is stored in the second top element
+ *  of the stack, and the top element is removed.
+ *  in the end, the stack is one element shorter
  * @stack: pointer to the stack
  * @line_number: number of lines
  * Return: nothing
