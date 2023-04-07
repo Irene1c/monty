@@ -11,12 +11,20 @@ void _push(stack_t **stack, unsigned int line_number)
 	int number;
 	stack_t *new;
 
-	if (num == NULL || !isdigit(num[i]))
+	if (num == NULL)
 	{
-		i++;
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
+	}
+	for (i = 0; num[i] != '\0'; i++)
+	{
+		if (!(num[i] >= 48 || num[i] <= 57))
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			free_stack(stack);
+			exit(EXIT_FAILURE);
+		}
 	}
 	number = atoi(num);
 	new = malloc(sizeof(stack_t));
